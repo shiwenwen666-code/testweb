@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Identity | Premium Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* 1. 字体与基础 */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
+        
+        :root {
+            --apple-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Inter', -apple-system, sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1 { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        /* 2. 流动 Mesh Gradient 背景 */
+        .mesh-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            filter: blur(100px);
+            opacity: 0.5;
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            width: 60vw; height: 60vw;
+            border-radius: 50%;
+            animation: flow 20s infinite alternate-reverse var(--apple-spring);
+        }
+
+        .blob-1 { background: #4f46e5; top: -10%; left: -10%; }
+        .blob-2 { background: #7c3aed; bottom: -10%; right: -10%; animation-delay: -5s; }
+        .blob-3 { background: #db2777; top: 40%; left: 30%; animation-delay: -10s; }
+
+        @keyframes flow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(10%, 15%) scale(1.1); }
+        }
+
+        /* 3. 毛玻璃卡片与边框光泽 */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass:hover {
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        /* 4. Q 弹导航栏动画 */
+        .nav-item {
+            transition: transform 0.4s var(--apple-spring), color 0.3s ease;
+        }
+        .nav-item:hover {
+            transform: scale(1.2) translateY(-2px);
+            color: #fff;
+        }
+
+        /* 5. 侧面 AI 形象光晕 */
+        .avatar-container {
+            position: relative;
+        }
+        .halo {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%; height: 120%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            filter: blur(40px);
+            z-index: 0;
+            animation: pulse 4s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        /* 入场动画 */
+        .fade-in {
+            animation: fadeIn 1.2s var(--apple-spring) forwards;
+            opacity: 0;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 背景 -->
+    <div class="mesh-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="fixed top-8 left-0 w-full flex justify-center z-50 fade-in" style="animation-delay: 0.2s;">
+        <div class="glass px-6 py-3 rounded-full flex items-center gap-8">
+            <a href="#" class="nav-item text-white/60 flex items-center gap-2 text-sm font-medium">
+                <i data-lucide="home" class="w-4 h-4"></i>Home
+            </a>
+            <a href="#" class="nav-item text-white/60 flex items-center gap-2 text-sm font-medium">
+                <i data-lucide="compass" class="w-4 h-4"></i>Explore
+            </a>
+            <a href="#" class="nav-item text-white/60 flex items-center gap-2 text-sm font-medium">
+                <i data-lucide="command" class="w-4 h-4"></i>Project
+            </a>
+            <a href="#" class="nav-item text-white/60 flex items-center gap-2 text-sm font-medium">
+                <i data-lucide="mail" class="w-4 h-4"></i>Contact
+            </a>
+        </div>
+    </nav>
+
+    <!-- 主体内容 -->
+    <main class="min-h-screen flex items-center px-8 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16 items-center w-full">
+            
+            <!-- 左侧文字区 -->
+            <div class="fade-in" style="animation-delay: 0.4s;">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] uppercase tracking-[0.2em] text-white/40 mb-8">
+                    Design & Code Studio
+                </span>
+                <h1 class="text-7xl lg:text-8xl font-extrabold tracking-tighter mb-8 leading-[0.9]">
+                    Pure <br>
+                    <span class="text-white/20">Aesthetic.</span>
+                </h1>
+                <p class="text-lg text-white/50 max-w-md font-light leading-relaxed mb-10">
+                    追求极致的极简主义，以前端技术重塑数字交互的节奏感。
+                </p>
+                
+                <div class="flex items-center gap-6">
+                    <button class="px-8 py-4 bg-white text-black rounded-2xl font-bold text-sm hover:scale-105 active:scale-95 transition-transform duration-300">
+                        开始探索
+                    </button>
+                    <button class="glass px-8 py-4 rounded-2xl font-bold text-sm hover:bg-white/10 transition-all duration-300">
+                        联系我
+                    </button>
+                </div>
+            </div>
+
+            <!-- 右侧 AI 形象区 -->
+            <div class="relative avatar-container flex justify-center fade-in" style="animation-delay: 0.6s;">
+                <!-- 背后光晕 -->
+                <div class="halo"></div>
+                
+                <!-- 形象剪影容器 -->
+                <div class="relative w-full max-w-[450px] aspect-[4/5] rounded-[60px] overflow-hidden border border-white/10 z-10">
+                    <!-- 氛围感大图：使用黑人女性侧脸剪影感图片 -->
+                    <img 
+                        src="https://images.unsplash.com/photo-1502323777036-f29e3972d82f?auto=format&fit=crop&q=80&w=1000" 
+                        alt="AI Avatar"
+                        class="w-full h-full object-cover grayscale brightness-[0.3] contrast-125"
+                    />
+                    <!-- 渐变遮罩 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-80"></div>
+                </div>
+
+                <!-- 浮动小卡片 -->
+                <div class="absolute -bottom-6 -left-6 glass p-6 rounded-[32px] z-20 flex items-center gap-4 animate-[bounce_4s_infinite]">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-500 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+                        <i data-lucide="sparkles" class="text-white"></i>
+                    </div>
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest text-white/40">Identity</p>
+                        <p class="font-bold text-white">AI Assistant</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 页脚社交媒体 -->
+    <div class="fixed bottom-12 left-12 flex flex-col gap-6 fade-in" style="animation-delay: 0.8s;">
+        <a href="#" class="text-white/20 hover:text-white transition-colors duration-300"><i data-lucide="github" class="w-5 h-5"></i></a>
+        <a href="#" class="text-white/20 hover:text-white transition-colors duration-300"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+        <a href="#" class="text-white/20 hover:text-white transition-colors duration-300"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+    </div>
+
+    <!-- 背景装饰大字 -->
+    <div class="fixed -bottom-20 -right-20 text-[25rem] font-black text-white/[0.02] pointer-events-none select-none italic tracking-tighter">
+        VIBE
+    </div>
+
+    <script>
+        // 初始化图标
+        lucide.createIcons();
+    </script>
+</body>
+</html>
